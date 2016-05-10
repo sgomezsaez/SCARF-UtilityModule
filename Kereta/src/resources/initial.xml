@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+<function>
+INSERT INTO kereta_function VALUES 
+('2929801b-edd0-427b-bffe-5c6470af492b','IGR_t(\nIFF(\nEQU(To,1),\nIFE( &lt;(MOD(t,12),3), 125, 42 ) \n) +\nIFF(\nEQU(To,2),\nIFE( &lt;(MOD(t,12),3), 120, 0 )\n))',NULL,'cost','mackfn',CURRENT_TIMESTAMP,'pt_adap'),
+('4053faff-1397-40ad-a825-3f2da57556c5','IFF(EQU(w,0),5) +\nIFF(EQU(w,1),12)','average transactions per user\nparms: w: workload numbering','misc','mackfn',CURRENT_TIMESTAMP,'pt_tpu'),
+('4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','IGR_t(\n  SUM_w\n  (\n    FCT(pt_pro, w:w) *\n    FCT(pt_users, t:t) *\n    FCT(pt_tpu, w:w) *\n    FCT(pt_rpt, t:t) *\n    FCT(pt_sat, t:t$T:To) *\n    FCT(pt_av, T:To)\n  )\n)','Prototype, revenue function;\nparms: t: time interval, To: topology numbering, w: workload numbering','revenue','mackfn',CURRENT_TIMESTAMP,'pt_rev'),
+('78791dcb-b940-459f-b118-aedb9e54009f','IFF(EQU(T,0), 0.998)+\nIFF(EQU(T,1), 0.9975)+\nIFF(EQU(T,2), 0.9975)','average availability\nparms: T: topology numbering','misc','mackfn',CURRENT_TIMESTAMP,'pt_av'),
+('9a7fe164-c573-4741-b25c-488f5ad1e3a2','IFF(EQU(w,0), 0.7)+\nIFF(EQU(w,1), 0.3)','probability of occurrence of workload \nparms: w: workload numbering','misc','mackfn',CURRENT_TIMESTAMP,'pt_pro'),
+('9ff80cad-00d6-4c0e-aae2-e86ad54816fa','IFE(&lt;(MOD(t,12), 10),0.18, 0.35)','average revenue per transaction\nparms: t: point in time','misc','mackfn',CURRENT_TIMESTAMP,'pt_rpt'),
+('d440033b-b6c0-44e3-8c2f-834a075f5774','IFE(\n&lt;(MOD(t,12), 1), 5000,\nIFE(&lt;(MOD(t,12),3), 3200,2000)\n)','average number of users per month\nparms: t: time period','misc','mackfn',CURRENT_TIMESTAMP,'pt_users'),
+('f0a6a7ec-3945-4333-9a47-38b346ddcb6e','IFF(\nEQU(T, 0),\nIFE(&lt;(MOD(t,12),1), 0.71, 0.82)\n)+\nIFF(\nEQU(T, 1),\nIFE(&lt;(MOD(t,12),1), 0.96, 0.97)\n)+\nIFF(\nEQU(T, 2),\nIFE(&lt;(MOD(t,12),1), 0.98, 0.999)\n)','average user satisfaction\nparms: t: time interval, T: topology numbering','misc','mackfn',CURRENT_TIMESTAMP,'pt_sat');
+</function>
+<parameter>
+INSERT INTO `kereta_parameter` VALUES 
+('T','78791dcb-b940-459f-b118-aedb9e54009f','number','0','mackfn',CURRENT_TIMESTAMP,'Topology identifier'),
+('To','2929801b-edd0-427b-bffe-5c6470af492b','number','0','mackfn',CURRENT_TIMESTAMP,'topology identifier'),
+('To','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','number','0','mackfn',CURRENT_TIMESTAMP,'topology identifier'),
+('t','2929801b-edd0-427b-bffe-5c6470af492b','array of numbers','[0,0]','mackfn',CURRENT_TIMESTAMP,'time interval boundaries'),
+('t','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','array of numbers','[0,0]','mackfn',CURRENT_TIMESTAMP,'time interval boundaries'),
+('t','9ff80cad-00d6-4c0e-aae2-e86ad54816fa','number','0','mackfn',CURRENT_TIMESTAMP,'time period'),
+('t','d440033b-b6c0-44e3-8c2f-834a075f5774','number','0','mackfn',CURRENT_TIMESTAMP,'time period'),
+('w','4053faff-1397-40ad-a825-3f2da57556c5','number','0','mackfn',CURRENT_TIMESTAMP,'workload identifier'),
+('w','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','array of numbers','[0,0]','mackfn',CURRENT_TIMESTAMP,'identifier of the first and last workload'),
+('w','9a7fe164-c573-4741-b25c-488f5ad1e3a2','number','0','mackfn',CURRENT_TIMESTAMP,'workload identifier');
+</parameter>
+<application>
+INSERT INTO `kereta_application` VALUES 
+('603e3430-0cee-4be4-b29c-1a9b8a0bfdbb','MediaWiki',NULL,'wiki','pt_app','mackfn',CURRENT_TIMESTAMP,0),
+('603e3430-0cee-4be4-b29c-1a9b8a0bfdbb','MediaWiki front-end',NULL,NULL,NULL,'mackfn',CURRENT_TIMESTAMP,1),
+('603e3430-0cee-4be4-b29c-1a9b8a0bfdbb','MediaWiki persistence layer',NULL,NULL,NULL,'mackfn',CURRENT_TIMESTAMP,2);
+</application>
+<distribution>
+INSERT INTO `kereta_distribution` VALUES 
+('5831e0d0-3a8b-453c-a963-fc1ec3bfd681',' ','','','mackfn',CURRENT_TIMESTAMP,'pt_IaaS', '', '603e3430-0cee-4be4-b29c-1a9b8a0bfdbb'),
+('6617d158-da36-4913-a60e-cb986d9461a2',' ','','','mackfn',CURRENT_TIMESTAMP,'pt_DBaaS', '', '603e3430-0cee-4be4-b29c-1a9b8a0bfdbb'),
+('9a2194ff-eaa4-4d0e-890a-8f898de73e53','','','','mackfn',CURRENT_TIMESTAMP,'pt_Prms', '', '603e3430-0cee-4be4-b29c-1a9b8a0bfdbb');
+</distribution>
+<applicationType>
+INSERT INTO `kereta_applicationType` VALUES ('wiki','mackfn',CURRENT_TIMESTAMP);
+</applicationType>
+<offering>
+INSERT INTO `kereta_offering` VALUES 
+(1,289,'offerings/elasticComputeCloud','/serviceTypes/infrastructures','mackfn',CURRENT_TIMESTAMP,'5831e0d0-3a8b-453c-a963-fc1ec3bfd681','/providers/AmazonWebServices','/offerings/elasticComputeCloud/configuration_289'),
+(1,187,'/offerings/relationalDatabaseService','/serviceTypes/sqlDatabases','mackfn', CURRENT_TIMESTAMP,'6617d158-da36-4913-a60e-cb986d9461a2','/providers/AmazonWebServices','/offerings/relationalDatabaseService/configuration_187');
+</offering>
+<offeringTier>
+INSERT INTO `kereta_offeringTier` VALUES 
+('603e3430-0cee-4be4-b29c-1a9b8a0bfdbb',2,1,'5831e0d0-3a8b-453c-a963-fc1ec3bfd681'),
+('603e3430-0cee-4be4-b29c-1a9b8a0bfdbb',2,1,'6617d158-da36-4913-a60e-cb986d9461a2');
+</offeringTier>
+<utilityFunction>
+INSERT INTO `kereta_utilityFunction` VALUES 
+('282b087f-7939-4a13-bfcd-87b8a684b98b','9a2194ff-eaa4-4d0e-890a-8f898de73e53','Prototype Utility Function for pt_Prms','mackfn',CURRENT_TIMESTAMP,'pt_uf-0'),
+('687b5a5f-74e1-41ac-a6c8-e6f350c14274','5831e0d0-3a8b-453c-a963-fc1ec3bfd681','Prototype Utility Function for pt_IaaS','mackfn',CURRENT_TIMESTAMP,'pt_uf-1'),
+('a00bc6d5-6b77-4ce3-9807-c162e41be21a','6617d158-da36-4913-a60e-cb986d9461a2','Prototype Utility Function for pt_DBaaS','mackfn',CURRENT_TIMESTAMP,'pt_uf-2');
+</utilityFunction>
+<subFunction>
+INSERT INTO `kereta_subfunction` VALUES 
+(1,'282b087f-7939-4a13-bfcd-87b8a684b98b','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','mackfn',CURRENT_TIMESTAMP),
+(1,'687b5a5f-74e1-41ac-a6c8-e6f350c14274','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','mackfn',CURRENT_TIMESTAMP),
+(1,'a00bc6d5-6b77-4ce3-9807-c162e41be21a','4c5f5308-c1f4-49e7-b50f-1c36edd14ac4','mackfn',CURRENT_TIMESTAMP),
+(2,'282b087f-7939-4a13-bfcd-87b8a684b98b','2929801b-edd0-427b-bffe-5c6470af492b','mackfn',CURRENT_TIMESTAMP),
+(2,'687b5a5f-74e1-41ac-a6c8-e6f350c14274','2929801b-edd0-427b-bffe-5c6470af492b','mackfn',CURRENT_TIMESTAMP),
+(2,'a00bc6d5-6b77-4ce3-9807-c162e41be21a','2929801b-edd0-427b-bffe-5c6470af492b','mackfn',CURRENT_TIMESTAMP),
+(3,'687b5a5f-74e1-41ac-a6c8-e6f350c14274','nefolog$289','mackfn',CURRENT_TIMESTAMP),
+(3,'a00bc6d5-6b77-4ce3-9807-c162e41be21a','nefolog$187','mackfn',CURRENT_TIMESTAMP);
+</subFunction>
+<performance>
+INSERT INTO `kereta_performance` VALUES 
+('location','5831e0d0-3a8b-453c-a963-fc1ec3bfd681',1,'EU','non-functional','string','mackfn','2016-02-06 18:50:01','='),
+('location','6617d158-da36-4913-a60e-cb986d9461a2',1,'EU','non-functional',NULL,'mackfn','2016-02-07 18:57:06','='),
+('throughput','5831e0d0-3a8b-453c-a963-fc1ec3bfd681',1,'w_0: 13.3 Req/s - w_1: 3.0 Req/s','non-functional','string','mackfn',CURRENT_TIMESTAMP,'='),
+('throughput','6617d158-da36-4913-a60e-cb986d9461a2',1,'w_0: 19.4 Req/s - w_1: 6.9 Req/s','non-functional',NULL,'mackfn',CURRENT_TIMESTAMP,'=');
+</performance>
+<requirement>
+INSERT INTO `kereta_requirement` VALUES 
+('location','EU','string','mackfn',CURRENT_TIMESTAMP,'non-functional','603e3430-0cee-4be4-b29c-1a9b8a0bfdbb',2,'='),
+('throughput','15','number','mackfn',CURRENT_TIMESTAMP,'non-functional','603e3430-0cee-4be4-b29c-1a9b8a0bfdbb',0,'>');
+</requirement>
+</queries>
