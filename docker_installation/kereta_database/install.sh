@@ -10,7 +10,7 @@ if [ ! -d "/etc/mysql/db" ]; then
 fi
 
 #Running Database
-sudo docker run -d --name mysql_$KERETA_DATABASE_NAME -v /etc/mysql/db:/var/lib/mysql -p $KERETA_DATABASE_HOST:$KERETA_DATABASE_PORT:$KERETA_PORT -e MYSQL_ROOT_PASSWORD=$KERETA_DATABASE_PASSWORD -e MYSQL_DATABASE=$KERETA_DATABASE_NAME -d mysql:5.5 --character-set-server=utf8 --collation-server=utf8_bin
+sudo docker run -d --name mysql_$KERETA_DATABASE_NAME -v /etc/mysql/db:/var/lib/mysql -p $KERETA_DATABASE_HOST:$KERETA_DATABASE_PORT:$KERETA_DATABASE_PORT -e MYSQL_ROOT_PASSWORD=$KERETA_DATABASE_PASSWORD -e MYSQL_DATABASE=$KERETA_DATABASE_NAME -d mysql:5.5 --character-set-server=utf8 --collation-server=utf8_bin
 
 #Connect to database from an application in another container
 #docker run --name app-container-name --link my-container-name:mysql -d app-that-uses-mysql
