@@ -4,6 +4,7 @@ function getKeretaRoot()
 	//return "http://localhost:8090/Kereta/";
 	//return "http://" + window.location.hostname + ":" + window.location.port + "/Kereta/";
 	return "http://129.69.214.138:8090/Kereta/";
+
 }
 
 function kereta_createWrapper(contentNode)
