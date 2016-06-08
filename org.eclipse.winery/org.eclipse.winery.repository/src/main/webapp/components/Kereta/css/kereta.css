@@ -1,0 +1,137 @@
+button.keretaGUI
+{
+	background-color: #0e5ca9;
+	color: #f08519;
+	float: right;
+	height: 100%;
+	font-weight: bold;
+}
+
+#keretaWrapper 
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	
+  	/*background: rgba(240, 133, 25, 0.3);*/
+  	background: rgba(14, 92, 169, 0.3);
+  	/*color: #0e5ca9;*/
+  	/*color: #f08519;*/
+}
+#keretaWrapper span[onClick], #keretaWrapper .glyphicon-off
+{
+	cursor: pointer;
+	color: #2d6ca2;
+	font-weight: bold;
+}
+
+#keretaWrapper input[readonly]
+{
+	background-color: #ccc !important;
+	color: #444;
+}
+
+#keretaWrapper label
+{
+	margin-top: .5em;
+}
+
+#keretaWrapper .glyphicon-off, #keretaWrapper .glyphicon-remove
+{
+	color: #f08519 !important;
+}
+.glyphicon-ok, .glyphicon-plus {
+	color: #73AD21 !important;	
+}
+
+#keretaWrapper .glyphicon-off
+{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-style: normal;
+	z-index: 1100;
+}
+
+#keretaAnchor {
+	margin-top: 1em;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#keretaContent
+{
+	margin-top: 5em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	min-height: 40em;
+	background: rgba(255,255,255,0.9);
+	
+}
+
+#keretaAppContainer
+{
+	padding: 1em;
+	margin-top: 2em;
+	border: 1px solid #000;
+}
+
+#keretaAppContainer input, #keretaAppContainer select 
+{
+}
+
+#keretaWrapper .clear
+{
+	clear: both;
+}
+
+#keretaAppContainer .formCol 
+{
+	margin-bottom: 1em;
+}
+ul.keretaMenu 
+{
+	font-weight: bold;
+	font-size: 1.2em;
+	list-style: none;
+	color: #0e5ca9;
+}
+
+ul.keretaMenu li
+{
+	font-weight: normal;
+	font-size: 1em;
+	list-style: none;
+	color: #f08519;
+	cursor: pointer;
+}
+
+.keretaMenubar
+{
+	position: relative;	
+}
+
+table.fctParameter td, table.fctParameter th, 
+table.dstrTable td, table.dstrTable th,
+table.ufSubfunctions td, table.ufSubfunctions th,
+table.calc td, table.calc th
+{
+	padding-right: 1em;	
+	padding-bottom: .3em;
+	
+}
+table.fctParameter th, table.fctParameter tr td:first-of-type,
+table.dstrTable th, table.dstrTable tr td:first-of-type 
+{	
+	text-align: center;
+}
+table.fctParameter
+{
+	
+}
+
