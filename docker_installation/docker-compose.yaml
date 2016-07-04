@@ -17,3 +17,9 @@ services:
   environment:
    MYSQL_ROOT_PASSWORD: root
    MYSQL_DATABASE: Kereta 
+ scarf_winery:
+   build: ./kereta_winery
+   ports:
+    - '8080:8080'
+   depends_on:
+    - scarf_kereta

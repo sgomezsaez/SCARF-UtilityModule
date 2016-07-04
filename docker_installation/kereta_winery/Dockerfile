@@ -33,6 +33,9 @@ RUN . ${NVM_HOME}/nvm.sh && \
     nvm alias default ${NODE_VERSION} && \
     npm install -g bower@${BOWER_VERSION}
 
+#Adding sym link for bower
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+
 # Configuring Tomcat Users
 ADD /config/tomcat-users.xml ${CATALINA_HOME}/conf/tomcat-users.xml
 
@@ -57,6 +60,7 @@ RUN . ${NVM_HOME}/nvm.sh && \
 WORKDIR $CATALINA_HOME
 
 EXPOSE 8080
-CMD cp $WINERY_DOCKER_REPO/org.eclipse.winery.repository/target/winery.war $CATALINA_HOME/webapps/ && \
-    cp $WINERY_DOCKER_REPO/org.eclipse.winery.topologymodeler/target/winery-topologymodeler.war $CATALINA_HOME/webapps/
+CMD cp $WINERY_DOCKER_REPO/SCARF-UtilityModule/org.eclipse.winery/org.eclipse.winery.repository/target/winery.war $CATALINA_HOME/webapps/ && \
+    cp $WINERY_DOCKER_REPO/SCARF-UtilityModule/org.eclipse.winery/org.eclipse.winery.topologymodeler/target/winery-topologymodeler.war $CATALINA_HOME/webapps/ && \
+    catalina.sh run
 
