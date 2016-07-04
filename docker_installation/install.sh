@@ -10,11 +10,13 @@ HOST=$(ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 
 CURRENT_DIR=$(pwd)
 
-echo "Creating local mysql folder"
-if [ ! -d "/etc/mysql/db" ]; then
-        echo "creating db folder"
-        sudo mkdir -p /etc/mysql/db
+if [ -d "/etc/mysql/db" ]; then
+        echo "Cleaning local mysql folder"
+	sudo rm -R /etc/mysql/db
 fi
+
+echo "Creating MySQL host folder"
+sudo mkdir -p /etc/mysql/db
 
 sudo docker-compose up -d
 
