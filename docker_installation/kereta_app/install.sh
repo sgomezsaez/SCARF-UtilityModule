@@ -1,12 +1,15 @@
 #!/bin/bash
 set -e
 
-echo "Installing KERETA..."
+IPADD=$(ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+KERETA_PORT=8090
 
-sudo docker build -t scarf/kereta .
+echo "Installing KERETA in $IPADD..."
+
+docker build -t scarf/kereta .
 
 echo "Running KERETA..."
 
-sudo docker run -d -p $KERETA_HOST:$KERETA_PORT:8080 scarf/kereta
+docker run -i -p $IPADD:$KERETA_PORT:8080 scarf/kereta "/usr/local/tomcat/bin/catalina.sh jdpa start"
 
-echo "KERETA running on port $KERETA_PORT"
+echo "KERETA running on $IPADD:$KERETA_PORT"

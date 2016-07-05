@@ -14,5 +14,5 @@ ADD /bin/Kereta.war ${CATALINA_HOME}/webapps/Kereta.war
 # Changing to CATALINA_HOME
 WORKDIR $CATALINA_HOME
 
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+#EXPOSE 8080
+#CMD ["catalina.sh", "run"]

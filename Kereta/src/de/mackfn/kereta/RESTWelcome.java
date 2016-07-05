@@ -35,10 +35,10 @@ public class RESTWelcome {
 	{
 		@SuppressWarnings("resource")
 		String result = new Scanner(getClass().getResourceAsStream("/resources/developer.html"), "UTF-8").useDelimiter("\\A").next();
-		
+
 		return Response.status(200).entity(result).build();
 	}
-	
+
 	@Path("Installation")
 	@GET
 	@Produces(MediaType.TEXT_HTML)
@@ -66,20 +66,20 @@ public class RESTWelcome {
 		result += "</table>";
 		result += "</form>";
 		result += "</body></html>";
-		
+
 		return Response.status(200).entity(result).build();
 	}
-	
+
 	@Path("Installation")
 	@POST
 	@Produces(MediaType.TEXT_HTML)
 	public Response getCreateTables(
-			@FormParam("root") String root, @FormParam("nefolog") String nefolog, 
-			@FormParam("dbName") String db, 
+			@FormParam("root") String root, @FormParam("nefolog") String nefolog,
+			@FormParam("dbName") String db,
 			@FormParam("dbHost") String host, @FormParam("dbPort") String port,
 			@FormParam("dbUser") String user, @FormParam("dbPW") String pw,
 			@FormParam("cDrop") String drop, @FormParam("cTable") String table, @FormParam("cResources") String resources) throws Exception
-	{	
+	{
 		String result = "";
 		List<String> tables = new ArrayList<String>();
 		tables.add("kereta_applicationType");
@@ -96,12 +96,12 @@ public class RESTWelcome {
 		tables.add("kereta_subfunction");
 		tables.add("kereta_function");
 		tables.add("kereta_parameter");
-		
+
 		String dbUrl = "jdbc:mysql://" + host + ":" + port + "/" + db;
-		
+
 		//File fpath = new File("kereta");
 		//if (!fpath.exists()) fpath.mkdir();
-		
+
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
@@ -123,28 +123,28 @@ public class RESTWelcome {
 		Element xPW = doc.createElement("password");
 		xPW.setTextContent(pw);
 		xRoot.appendChild(xPW);
-		
+
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
 
 		String resURL = getClass().getClassLoader().getResource("/resources").getPath();
 		StreamResult streamResult =  new StreamResult(resURL + "kereta.xml");
-		transformer.transform(source, streamResult);	
+		transformer.transform(source, streamResult);
 
 		boolean bDrop = (drop != null);
 		boolean bTable = (table != null);
 		boolean bResources = (resources != null);
-		
+
 		boolean connected = false;
 		String cStatus = "failed";
 		Connector con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
-		if (con.isConnected()) 
-		{	
+		if (con.isConnected())
+		{
 			connected = true;
 			cStatus = "ok";
 		}
-		
+
 		result += "<!DOCTYPE html><html><head><title>Kereta API</title></head>";
 		result += "<body style='font-family: monospace;'>";
 		result += "<table>";
@@ -156,7 +156,7 @@ public class RESTWelcome {
 		if (connected)
 		{
 			result += "<tr><td>&nbsp;</td><td></td><tr>";
-			if (bDrop) 
+			if (bDrop)
 			{
 				Iterator<String> it = tables.iterator();
 				while (it.hasNext())
@@ -165,10 +165,10 @@ public class RESTWelcome {
 					if (DbInit.DropTable(con, tab)) result += "<tr><td><b>DROP " + tab + ":</b></td><td>ok</td><tr>";
 					else result += "<tr><td><b>DROP " + tab + ":</b></td><td>failed</td><tr>";
 				}
-				
+
 			}
 			result += "<tr><td>&nbsp;</td><td></td><tr>";
-			if (bTable) 
+			if (bTable)
 			{
 				for (int i = 0; i < 4; i++)
 				{
@@ -176,56 +176,56 @@ public class RESTWelcome {
 					if (DbInit.Type(con,tab)) result += "<tr><td><b>CREATE " + tab + ":</b></td><td>ok</td><tr>";
 					else result += "<tr><td><b>CREATE " + tab + ":</b></td><td>failed</td><tr>";
 				}
-				
+
 				if (DbInit.Application(con)) result += "<tr><td><b>CREATE kereta_application:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_application:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Distribution(con)) result += "<tr><td><b>CREATE kereta_distribution:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_distribution:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Offering(con)) result += "<tr><td><b>CREATE kereta_offering:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_offering:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.OfferingTier(con)) result += "<tr><td><b>CREATE kereta_offeringTier:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_offeringTier:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Requirement(con)) result += "<tr><td><b>CREATE kereta_requirement:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_requirement:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Performance(con)) result += "<tr><td><b>CREATE kereta_performance:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_performance:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.UtilityFunction(con)) result += "<tr><td><b>CREATE kereta_utilityFunction:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_utilityFunction:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Subfunction(con)) result += "<tr><td><b>CREATE kereta_subfunction:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_subfunction:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Function(con)) result += "<tr><td><b>CREATE kereta_function:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_function:</b></td><td>failed</td><tr>";
-				
+
 				if (DbInit.Parameter(con)) result += "<tr><td><b>CREATE kereta_parameter:</b></td><td>ok</td><tr>";
 				else result += "<tr><td><b>CREATE kereta_parameter:</b></td><td>failed</td><tr>";
-				
+
 				result += "<tr><td>&nbsp;</td><td></td></tr>";
-				
+
 				if (DbInit.MandatoryResources(con)) result += "<tr><td><b>INSERT Mandatory Resources:</b></td><td>ok</td><tr>";
-				else result += "<tr><td><b>INSERT Mandatory Type Resources:</b></td><td>failed</td><tr>";	
+				else result += "<tr><td><b>INSERT Mandatory Type Resources:</b></td><td>failed</td><tr>";
 			}
-			
-			
+
+
 			if (bResources)
 			{
 				InputSource src = new InputSource(getClass().getResourceAsStream("/resources/initial.xml"));
 				Document initial = docBuilder.parse(src);
-				
+
 				result += "<tr><td>&nbsp;</td><td></td></tr>";
 				if (DbInit.InitialResources(con, initial)) result += "<tr><td><b>INSERT Inital Function Resources:</b></td><td>ok</td><tr>";
-				else result += "<tr><td><b>INSERT Inital Function Resources:</b></td><td>failed</td><tr>";	
-				
+				else result += "<tr><td><b>INSERT Inital Function Resources:</b></td><td>failed</td><tr>";
+
 			}
 		}
-		else 
+		else
 		{
 			result += "<tr> <td></td><td><td></tr>";
 			result += "<tr><td></td><td>" + con.getErrorMessage() + "<td></tr>";
@@ -233,7 +233,7 @@ public class RESTWelcome {
 			result += "<tr><td></td><td><form action='Installation' method='get'><input type='submit' value='back'></form></td</tr>";
 		}
 		result += "</body></html>";
-		
+
 		return Response.status(200).entity(result).build();
 	}
 }

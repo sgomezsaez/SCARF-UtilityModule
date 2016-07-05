@@ -17,6 +17,8 @@ ENV MAVEN_URL http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/bina
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/apache-maven-${MAVEN_VERSION}/bin/
 
+WINERY_REPO_LOCATION = /opt/wineryRepository
+
 #Install winery building dependencies: https://github.com/jojow/opentosca-dockerfiles/blob/master/winery/Dockerfile
 RUN apt-get update -y && \
     apt-get install -y git wget openjdk-7-jdk build-essential && \
@@ -55,6 +57,9 @@ RUN mvn install
 WORKDIR ${WINERY_DOCKER_REPO}/SCARF-UtilityModule/org.eclipse.winery
 RUN . ${NVM_HOME}/nvm.sh && \
     mvn clean package
+
+#Making Winery Repo Folder
+RUN mkdir -p ${WINERY_REPO_LOCATION}
 
 # Changing to CATALINA_HOME
 WORKDIR $CATALINA_HOME
