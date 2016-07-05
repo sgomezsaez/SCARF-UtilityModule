@@ -4,8 +4,13 @@ services:
   build: ./kereta_app
   ports:
    - '8090:8080'
+   - '8000:8000'
   depends_on:
    - scarf_kereta_database
+  environment:
+   JPDA_ADDRESS: 8000
+   JPDA_TRANSPORT: dt_socket
+   command: /usr/local/tomcat/bin/catalina.sh jdpa start
  scarf_kereta_database:
   image: mysql:5.5
   volumes:
