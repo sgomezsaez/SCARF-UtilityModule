@@ -54,7 +54,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/components/bootstrap-spinedit/css/bootstrap-spinedit.css" />
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/components/xmltree/xmltree.css" />
-	
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/behaviorModelTable.css" />
 
 	<link rel="stylesheet" type="text/css" href="http://eclipse.org/orion/editor/releases/6.0/built-editor.css"/>
@@ -62,7 +62,7 @@
 	<!-- Part of the Kereta-Integration -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/components/Kereta/css/kereta.css" />
  	<!-- <link rel="stylesheet" href="http://localhost/Kereta/css/kereta.css" /> -->
- 
+
 	<link type="text/css" href="${w:topologyModelerURI()}/css/winery-common.css" rel="stylesheet" />
 
 	<script type='text/javascript' src='${pageContext.request.contextPath}/components/requirejs/require.js'></script>
@@ -294,11 +294,14 @@ $(function() {
 				<div class="left"></div>
 				<div class="center">Administration</div>
 				<div class="right"></div>
-			</a>	
-			
-			<button class="keretaGUI" role="button" onClick="kereta_GUI();">
-				Utility Calculation
-			</button>
+			</a>
+
+			<c:set var="scarfUtilityModuleURL" value="<%=Prefs.INSTANCE.getProperties().get(\"scarfUtilityModuleURL\")%>"/>
+			<c:if test="${not empty scarfUtilityModuleURL}">
+				<button class="keretaGUI" role="button" onClick="kereta_GUI('${scarfUtilityModuleURL}');">
+					Utility Calculation
+				</button>
+			</c:if>
 
 		</div>
 	</div>

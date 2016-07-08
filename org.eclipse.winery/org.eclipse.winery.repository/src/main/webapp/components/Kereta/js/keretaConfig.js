@@ -1,9 +1,11 @@
 
+var scarfUtilityModuleURL = "http://" + window.location.hostname + ":" + window.location.port + "/Kereta/";
+
 function getKeretaRoot()
-{ 
+{
 	//return "http://localhost:8090/Kereta/";
 	//return "http://" + window.location.hostname + ":" + window.location.port + "/Kereta/";
-	return "http://129.69.214.138:8090/Kereta/";
+	return scarfUtilityModuleURL;
 
 }
 
@@ -19,15 +21,15 @@ function kereta_createWrapper(contentNode)
 	col.setAttribute("id", "keretaContent");
 	var close = document.createElement("span");
 	close.setAttribute("class", "glyphicon glyphicon-off");
-	
+
 	col.appendChild(close);
 	$(col).append(kereta_menuBar());
 	col.appendChild(contentNode);
 	cnt.appendChild(col);
 	wrapper.appendChild(cnt);
 	document.body.appendChild(wrapper);
-	
-	$(".glyphicon-off").on("click", function() 
+
+	$(".glyphicon-off").on("click", function()
 	{
 			$("#keretaWrapper").remove();
 	});
@@ -49,11 +51,11 @@ function kereta_createSmallWrapper(contentNode)
 	col.appendChild(contentNode);
 	cnt.appendChild(spc);
 	cnt.appendChild(col);
-	
+
 	wrapper.appendChild(cnt);
 	document.body.appendChild(wrapper);
-	
-	$(".glyphicon-off").on("click", function() 
+
+	$(".glyphicon-off").on("click", function()
 	{
 			$("#keretaWrapper").remove();
 	});
@@ -102,8 +104,11 @@ function kereta_createElement(tag, id, className)
 	return elt;
 }
 
-function kereta_GUI()
+function kereta_GUI(utilityModuleURL)
 {
+	if (utilityModuleURL != null && utilityModuleURL != "") {
+		scarfUtilityModuleURL = utilityModuleURL;
+	}
 	var cntNode = kereta_createElement("div", "keretaAnchor", "col-lg-12");
 	kereta_createWrapper(cntNode);
 }

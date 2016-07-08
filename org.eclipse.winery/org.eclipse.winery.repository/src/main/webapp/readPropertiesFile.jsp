@@ -15,7 +15,7 @@
 <%@ page import="java.io.*"%>
 
 <%
-//The 'readPropertiesFile.jsp' file provides the value of repository path, performance policy type namespace and performance policy template namespace variable from the properties file. 
+//The 'readPropertiesFile.jsp' file provides the value of repository path, performance policy type namespace and performance policy template namespace variable from the properties file.
 
 String repositoryPath;
 String policyTypeNamespace;
@@ -29,7 +29,7 @@ if (f != null){
   repositoryPath = props.getProperty("repositoryPath");
   policyTypeNamespace = props.getProperty("policyTypeNamespace");
   policyTemplateNamespace = props.getProperty("policyTemplateNamespace");
-  
+
   out.print(repositoryPath);
   out.print(",End Here,");
   out.print(policyTypeNamespace);

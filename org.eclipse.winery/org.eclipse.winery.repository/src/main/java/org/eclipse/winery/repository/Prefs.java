@@ -34,30 +34,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Prefs implements ServletContextListener {
-	
+
 	// set by the constructors
 	// We have to do this hack as the servlet container initializes this class
 	// on its own and we want to have a *single* instance of this class.
 	public static Prefs INSTANCE;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(Prefs.class);
-	
+
 	protected IRepository repository = null;
-	
+
 	private ServletContext context;
-	
+
 	private Boolean isContainerLocallyAvailable = null;
-	
+
 	private Boolean isRestDocDocumentationAvailable = null;
-	
+
 	private Boolean isPlanBuilderAvailable = null;
-	
+
 	// location of the winery topology modeler
 	private String wineryTopologyModelerPath = null;
-	
+
 	// the properties from winery.properties
 	protected Properties properties = null;
-	
+
+	// SCARF-Utility Module
+
+	private String scarfUtilityModuleURL;
+
 	// package visibility to ease testing
 	static final String PROP_JCLOUDS_CONTEXT_PROVIDER = "jclouds.context.provider";
 	static final String PROP_JCLOUDS_CONTEXT_IDENTITY = "jclouds.context.identity";
@@ -65,10 +69,10 @@ public class Prefs implements ServletContextListener {
 	static final String PROP_JCLOUDS_BLOBSTORE_LOCATION = "jclouds.blobstore.location";
 	static final String PROP_JCLOUDS_CONTAINERNAME = "jclouds.blobstore.container";
 	static final String PROP_JCLOUDS_END_POINT = "jclouds.blobstore.endpoint";
-	
+
 	static final String PROP_BPMN4TOSCA_MODELER_URI = "bpmn4toscamodelerBaseURI";
-	
-	
+
+
 	/**
 	 * This constructor is called at handling at servlets, too. Therefore, we
 	 * make it private. If testing is needed, an additional paramater has to be
@@ -77,10 +81,10 @@ public class Prefs implements ServletContextListener {
 	public Prefs() {
 		Prefs.INSTANCE = this;
 	}
-	
+
 	/**
 	 * Constructor for Unit testing ONLY!
-	 * 
+	 *
 	 * @param initializeRepository true if the repository should be initialized
 	 *            as provided in winery.properties
 	 * @throws IOException
@@ -88,7 +92,7 @@ public class Prefs implements ServletContextListener {
 	 */
 	protected Prefs(boolean initializeRepository) throws IOException {
 		this();
-		
+
 		// emulate behavior of doInitialization(Context)
 		Properties p = new Properties();
 		InputStream is = this.getClass().getClassLoader().getResourceAsStream("winery.properties");
@@ -96,24 +100,24 @@ public class Prefs implements ServletContextListener {
 			p.load(is);
 		}
 		this.properties = p;
-		
+
 		if (initializeRepository) {
 			this.doRepositoryInitialization();
 		}
 	}
-	
+
 	/**
 	 * Initialization code for the repository. Should go into separate class,
 	 * but being here should be OK for a prototype
-	 * 
+	 *
 	 * Called from both the constructor for JUnit and the servlet-based
 	 * initialization
-	 * 
+	 *
 	 * Pre-Condition: this.properties is set.
 	 */
 	private void doRepositoryInitialization() {
 		assert (this.properties != null);
-		
+
 		String provider = this.properties.getProperty(Prefs.PROP_JCLOUDS_CONTEXT_PROVIDER);
 		if (provider != null) {
 			// repository runs via jclouds
@@ -141,7 +145,7 @@ public class Prefs implements ServletContextListener {
 			}
 		}
 	}
-	
+
 	private void doInitialization(ServletContext ctx) {
 		if (Locale.getDefault() != Locale.ENGLISH) {
 			try {
@@ -154,9 +158,9 @@ public class Prefs implements ServletContextListener {
 				Prefs.logger.error("Could not switch locale to English", e);
 			}
 		}
-		
+
 		this.context = ctx;
-		
+
 		// Reading //
 		final String fn = "/WEB-INF/classes/winery.properties";
 		Prefs.logger.debug("Trying to read ".concat(ctx.getRealPath(fn)));
@@ -165,9 +169,9 @@ public class Prefs implements ServletContextListener {
 		Properties p = new Properties();
 		if (inStream == null) {
 			Prefs.logger.info(fn + " does not exist.");
-			
+
 			// We search for winery.properties on the filesystem in the repository
-			
+
 			File propFile = new File(FilebasedRepository.getDefaultRepositoryFilePath(), "winery.properties");
 			Prefs.logger.info("Trying " + propFile.getAbsolutePath());
 			if (propFile.exists()) {
@@ -195,18 +199,21 @@ public class Prefs implements ServletContextListener {
 				Prefs.logger.error("Could not load winery.properties", e);
 			}
 		}
-		
+
 		this.wineryTopologyModelerPath = p.getProperty("topologymodeler");
-		
+
+		// Getting SCARF-UtilityModule URL
+		this.scarfUtilityModuleURL = p.getProperty("scarfUtilityModuleURL");
+
 		// make the properties known in the class
 		this.properties = p;
-		
+
 		this.doRepositoryInitialization();
-		
+
 		// Initialize XSD validation in the background. Takes up a few seconds.
 		// If we do not do it here, the first save by a user takes a few seconds, which is inconvenient
 		new Thread() {
-			
+
 			@Override
 			public void run() {
 				Prefs.logger.debug("Initializing XML validation");
@@ -216,28 +223,28 @@ public class Prefs implements ServletContextListener {
 			}
 		}.start();
 	}
-	
+
 	public IRepository getRepository() {
 		return this.repository;
 	}
-	
+
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		Prefs.INSTANCE.doInitialization(arg0.getServletContext());
 	}
-	
+
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		// nothing to do at tear down
 	}
-	
+
 	/**
 	 * @return the path of the root resource
 	 */
 	public String getResourcePath() {
 		return this.context.getContextPath();
 	}
-	
+
 	/**
 	 * @return the path to the winery topology modeler. Without trailing slash
 	 */
@@ -261,24 +268,24 @@ public class Prefs implements ServletContextListener {
 			return this.wineryTopologyModelerPath;
 		}
 	}
-	
+
 	/**
 	 * Returns the read content from winery.properties.
-	 * 
+	 *
 	 * @return the internal object held by this class. Manipulations on this
 	 *         object may cause trouble.
 	 */
 	public Properties getProperties() {
 		return this.properties;
 	}
-	
+
 	/**
 	 * @return the version of winery
 	 */
 	public String getVersion() {
 		return Version.VERSION;
 	}
-	
+
 	/**
 	 * @return true if the OpenTOSCA container is locally available
 	 */
@@ -292,7 +299,7 @@ public class Prefs implements ServletContextListener {
 		}
 		return this.isContainerLocallyAvailable;
 	}
-	
+
 	/**
 	 * @return true if the plan generator is available
 	 */
@@ -304,7 +311,7 @@ public class Prefs implements ServletContextListener {
 		}
 		return this.isPlanBuilderAvailable;
 	}
-	
+
 	/**
 	 * Quick hack to check whether a RestDoc documentation is available at
 	 * /restdoc.html. We do not deliver
@@ -320,7 +327,7 @@ public class Prefs implements ServletContextListener {
 		}
 		return this.isRestDocDocumentationAvailable;
 	}
-	
+
 	/**
 	 * @return the base URL of the BPMN4TOSCA plan modeler. NULL if not
 	 *         configured. May also be empty.
@@ -328,5 +335,10 @@ public class Prefs implements ServletContextListener {
 	public String getBPMN4TOSCABaseURL() {
 		return this.properties.getProperty(Prefs.PROP_BPMN4TOSCA_MODELER_URI);
 	}
-	
+
+	public String getScarfUtilityModuleURL() {
+		// TODO Auto-generated method stub
+		return this.scarfUtilityModuleURL;
+	}
+
 }
