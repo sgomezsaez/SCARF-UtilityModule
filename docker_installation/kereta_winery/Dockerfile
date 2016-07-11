@@ -17,7 +17,7 @@ ENV MAVEN_URL http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/bina
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/apache-maven-${MAVEN_VERSION}/bin/
 
-WINERY_REPO_LOCATION = /opt/wineryRepository
+ENV WINERY_REPO_LOCATION /opt/wineryRepository
 
 #Install winery building dependencies: https://github.com/jojow/opentosca-dockerfiles/blob/master/winery/Dockerfile
 RUN apt-get update -y && \

@@ -48,7 +48,7 @@
 <%@page import="org.eclipse.winery.repository.client.WineryRepositoryClientFactory"%>
 <%@page import="org.eclipse.winery.repository.client.IWineryRepositoryClient"%>
 <%@page import="org.eclipse.winery.repository.client.WineryRepositoryClient"%>
-<%@page import="org.eclipse.winery.topologymodeler.WineryUtil"%>
+<%@page import="org.eclipse.winery.topologymodeler.*"%>
 <%@page import="com.sun.jersey.api.client.WebResource"%>
 <%@page import="com.sun.jersey.api.client.Client"%>
 <%@page import="com.sun.jersey.api.client.ClientResponse"%>
@@ -740,7 +740,7 @@ require(["winery-topologymodeler-AMD"], function(wt) {
 			return false;
 			}
 		}
-		
+
 		if ( (e.shiftKey) || (e.ctrlKey) ) {
 			// SHIFT or CTRL indicates multi select
 			// toggle containment in the multi select

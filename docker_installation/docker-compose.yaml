@@ -4,13 +4,13 @@ services:
   build: ./kereta_app
   ports:
    - '8090:8080'
-   - '8000:8000'
+#   - '8000:8000'
   depends_on:
    - scarf_kereta_database
   environment:
    #JPDA_ADDRESS: 8000
    #JPDA_TRANSPORT: dt_socket
-   CATALINA_OPTS: -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
+#   CATALINA_OPTS: -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
    command: /usr/local/tomcat/bin/catalina.sh run
  scarf_kereta_database:
   image: mysql:5.5
@@ -23,9 +23,14 @@ services:
   environment:
    MYSQL_ROOT_PASSWORD: root
    MYSQL_DATABASE: Kereta 
- scarf_winery:
-   build: ./kereta_winery
-   ports:
-    - '8080:8080'
-   depends_on:
-    - scarf_kereta
+# scarf_winery:
+#   build: ./kereta_winery
+#   ports:
+#    - '8080:8080'
+#    - '8000:8000'
+#   environment:
+#    #JPDA_ADDRESS: 8000
+#    #JPDA_TRANSPORT: dt_socket
+#    CATALINA_OPTS: -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
+#   depends_on:
+#    - scarf_kereta
