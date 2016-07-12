@@ -85,6 +85,9 @@
 		<url-pattern>/other/*</url-pattern>
 		<url-pattern>/test/*</url-pattern>
 
+		<!-- workload definition -->
+		<url-pattern>/workloads/*</url-pattern>
+
 	</filter-mapping>
 	<listener>
 		<listener-class>org.eclipse.winery.repository.Prefs</listener-class>

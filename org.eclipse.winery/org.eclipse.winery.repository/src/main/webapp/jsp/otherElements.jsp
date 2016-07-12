@@ -66,7 +66,7 @@
 
 	<h4>Workloads</h4>
 	<button class="btn btn-default" id="workloadList"
-		onclick="workloadList();">List</button>
+		onclick="workloadList();">Workload Definitions</button>
 
 	<div class="modal fade" id="ListWorkload">
 		<div class="modal-dialog">
@@ -102,40 +102,40 @@
 	<script>
 	var repositoryPath="";
 
-	//The 'readPropertiesFile.jsp' file provides the value of repository path variable from the properties file. 
+	//The 'readPropertiesFile.jsp' file provides the value of repository path variable from the properties file.
 	$.get("/winery/readPropertiesFile.jsp", function(data, status){
 		var resArray=data.split(",End Here,");
 		repositoryPath=resArray[0];
 		});
-	
+
 	//The 'listWorkloads.jsp' file provides all the workload specification list. Each service template contains only a single workload specification XML file. Multiple workload samples are added to the single workload specification XML file.
 	function workloadList(){
 		$.get("/winery/listWorkloads.jsp?repositoryPath="+repositoryPath, function(data, status){
 			var resArray=data.split(",End Here,");
 			$("#ListWorkloadTable > tbody").html("");
-	       eval(resArray).forEach(function(x) { 
+	       eval(resArray).forEach(function(x) {
 	    	   //The table containing all the workload specification list.
 	    	   var workloadTable= "";
 	    	   if(x!=""){
-	   			workloadTable= "<tr id=\"trw"+ $.trim(x) + "\"><td>"+ $.trim(x) + " </td><td><button type=\"button\"  id=\"rw"+ $.trim(x) + "\" class=\"btn btn-primary\" onclick=\"displayWorkload(this);\">View</button></td></tr>"; 
+	   			workloadTable= "<tr id=\"trw"+ $.trim(x) + "\"><td>"+ $.trim(x) + " </td><td><button type=\"button\"  id=\"rw"+ $.trim(x) + "\" class=\"btn btn-primary\" onclick=\"displayWorkload(this);\">View</button></td></tr>";
 	   	    	$("#ListWorkloadTable").append(workloadTable);
 	    	   }
 	        });
 	       var diag = $("#ListWorkload");
 			require(["winery-support-common"], function(w) {
 				diag.modal("show");
-			});   
+			});
 	});
-		
-		
+
+
 	}
-	
+
 	//The 'displayWorkload.jsp' file displays the workload specification of the selected service template in xml format.
 	function displayWorkload(el){
 		var serviceTemplate=$(el).attr('id');
 		serviceTemplate=serviceTemplate.substring(2);
 		var sendparams = "/winery/displayWorkload.jsp?serviceTemplate="+serviceTemplate+"&repositoryPath="+repositoryPath;
-		window.location.replace(sendparams);		
+		window.location.replace(sendparams);
 	}
 	</script>
 
