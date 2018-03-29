@@ -37,7 +37,7 @@ public class RESTSearch {
 	
 	public RESTSearch()
 	{
-		this.con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
+		this.con = new Connector(getClass().getClassLoader().getResource("/").getPath() + "kereta.xml");
 		
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

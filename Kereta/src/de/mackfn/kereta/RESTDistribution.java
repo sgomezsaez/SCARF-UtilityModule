@@ -49,7 +49,7 @@ public class RESTDistribution {
 	
 	public RESTDistribution()
 	{
-		this.con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
+		this.con = new Connector(getClass().getClassLoader().getResource("/").getPath() + "kereta.xml");
 		
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

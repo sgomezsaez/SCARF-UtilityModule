@@ -51,7 +51,7 @@ public class RESTUtilityFunction {
 	
 	public RESTUtilityFunction()
 	{
-		this.con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
+		this.con = new Connector(getClass().getClassLoader().getResource("/").getPath() + "kereta.xml");
 		
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -239,18 +239,30 @@ public class RESTUtilityFunction {
 			
 			double calc = 0;
 			List<Integer> nbrs = SubFunction.getUtilityFunctionSubFunctionNumbers(con, uf.getId());
+			double satisfaction = -1;
+			double revenue = 0;
+			double cost = 0;
 			for (int i = 0; i < nbrs.size(); i++)
 			{
 				Document res = (Document)this.calcFunction(id, nbrs.get(i), uriInfo).getEntity();
 				Element cXml = (Element)res.getElementsByTagName("calculation").item(0);
 				String subType = cXml.getAttribute("type");
+				System.out.println("type is " + subType);
 				Element rXml = (Element)res.getElementsByTagName("result").item(0);
 				double subRes = Double.parseDouble(rXml.getTextContent());
-				if (subType.equals("revenue")) calc += subRes;
-				else if (subType.equals("cost")) calc -= subRes;
+				if (subType.toLowerCase().contains("revenue") || subType.toLowerCase().contains("rev")) revenue = subRes;
+				else if (subType.equals("cost")) cost = subRes;
+				else if (subType.toLowerCase().contains("satisfaction") || subType.toLowerCase().contains("satisf")) satisfaction = subRes;
 				Node subNode = doc.importNode(res.getDocumentElement(), true);
 				subXml.appendChild(subNode);
 			}
+			
+			System.out.println("satisfaction is " + satisfaction);
+			System.out.println("revenue is " + revenue);
+			System.out.println("cost is " + cost);
+
+			if (satisfaction < 0) calc = revenue - cost;
+			else calc = (revenue * satisfaction) - cost;
 			ufRes.setTextContent(StaticTools.double2String(calc, 2));
 		}
 		else {
@@ -543,7 +555,7 @@ public class RESTUtilityFunction {
 			
 			String ident = "0";
 			if (uriParms.containsKey("key")) ident = uriParms.getFirst("key");
-			JsonObject vSet = SoftPersistence.getParameterJson(uf.getId(), number, ident, getClass().getClassLoader().getResource("/resources").getPath() + "parms/");
+			JsonObject vSet = SoftPersistence.getParameterJson(uf.getId(), number, ident, getClass().getClassLoader().getResource("/").getPath() + "parms/");
 			double result = Double.NaN;
 			
 			String type = "";
@@ -603,7 +615,7 @@ public class RESTUtilityFunction {
 			
 			Element parmsXml = doc.createElement("parameters");
 			calcXml.appendChild(parmsXml);
-			Map<String, String> vMap = SoftPersistence.getParameterSet(uf.getId(), number, ident, getClass().getClassLoader().getResource("/resources").getPath() + "parms/");
+			Map<String, String> vMap = SoftPersistence.getParameterSet(uf.getId(), number, ident, getClass().getClassLoader().getResource("/").getPath() + "parms/");
 			Iterator<String> it = vMap.keySet().iterator();
 			while (it.hasNext()) 
 			{
@@ -657,7 +669,7 @@ public class RESTUtilityFunction {
 			cal.setTime(expire);
 			cal.add(Calendar.DATE, 3);
 			expire = cal.getTime();
-			result = SoftPersistence.createParameterSet(uf.getId(), number, parms, ident, getClass().getClassLoader().getResource("/resources").getPath() + "parms/");
+			result = SoftPersistence.createParameterSet(uf.getId(), number, parms, ident, getClass().getClassLoader().getResource("/").getPath() + "parms/");
 			root.setTextContent(result);
 		}
 		else {

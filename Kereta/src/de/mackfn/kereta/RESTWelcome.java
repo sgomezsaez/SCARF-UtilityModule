@@ -34,7 +34,7 @@ public class RESTWelcome {
 	public Response getWelcome() throws Exception
 	{
 		@SuppressWarnings("resource")
-		String result = new Scanner(getClass().getResourceAsStream("/resources/developer.html"), "UTF-8").useDelimiter("\\A").next();
+		String result = new Scanner(getClass().getResourceAsStream("/developer.html"), "UTF-8").useDelimiter("\\A").next();
 
 		return Response.status(200).entity(result).build();
 	}
@@ -52,16 +52,16 @@ public class RESTWelcome {
 		result += "<form action='Installation' method='post'>";
 		result += "<table>";
 		result += "<tr><td><b>Local Kereta Root:</b></td><td><input type='text' name='root' value='http://localhost:8080/Kereta'></td><tr>";
-		result += "<tr><td><b>Nefolog Root:</b></td><td><input type='text' name='nefolog' value='http://ec2-52-31-0-129.eu-west-1.compute.amazonaws.com:8080/nefolog'></td><tr>";
+		result += "<tr><td><b>Nefolog Root:</b></td><td><input type='text' name='nefolog' value='http://scarf-nefolog:8080/nefolog'></td><tr>";
 		result += "<tr><td>&nbsp;</td><td></td></tr>";
-		result += "<tr><td><b>Database Name:</b></td><td><input type='text' name='dbName'></td><tr>";
-		result += "<tr><td><b>Database Host:</b></td><td><input type='text' name='dbHost' value='localhost'></td></tr>";
+		result += "<tr><td><b>Database Name:</b></td><td><input type='text' name='dbName' value='Kereta'></td><tr>";
+		result += "<tr><td><b>Database Host:</b></td><td><input type='text' name='dbHost' value='scarf-kereta-database'></td></tr>";
 		result += "<tr><td><b>Database Port:</b></td><td><input type='text' name='dbPort' value='3306'></td></tr>";
-		result += "<tr><td><b>Database User:</b></td><td><input type='text' name='dbUser'></td></tr>";
-		result += "<tr><td><b>Database Password:</b></td><td><input type='password' name='dbPW'></td></tr>";
+		result += "<tr><td><b>Database User:</b></td><td><input type='text' name='dbUser' value='user'></td></tr>";
+		result += "<tr><td><b>Database Password:</b></td><td><input type='text' name='password'></td></tr>";
 		result += "<tr><td><b>Drop Existing Tables:</b></td><td><input type='checkbox' name='cDrop' checked='true'> (requires DROP permission.)</td></tr>";
 		result += "<tr><td><b>Create Tables:</b></td><td><input type='checkbox' name='cTable' checked='true'> (requires CREATE permission.)</td></tr>";
-		result += "<tr><td><b>Inital Resources:</b></td><td><input type='checkbox' name='cResources'></td></tr>";
+		result += "<tr><td><b>Inital Resources:</b></td><td><input type='checkbox' checked='true' name='cResources'></td></tr>";
 		result += "<tr><td></td><td><input type='submit' value='Submit'></td</tr>";
 		result += "</table>";
 		result += "</form>";
@@ -128,7 +128,7 @@ public class RESTWelcome {
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
 
-		String resURL = getClass().getClassLoader().getResource("/resources").getPath();
+		String resURL = getClass().getClassLoader().getResource("/").getPath();
 		StreamResult streamResult =  new StreamResult(resURL + "kereta.xml");
 		transformer.transform(source, streamResult);
 
@@ -138,7 +138,7 @@ public class RESTWelcome {
 
 		boolean connected = false;
 		String cStatus = "failed";
-		Connector con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
+		Connector con = new Connector(getClass().getClassLoader().getResource("/").getPath() + "kereta.xml");
 		if (con.isConnected())
 		{
 			connected = true;
@@ -216,7 +216,7 @@ public class RESTWelcome {
 
 			if (bResources)
 			{
-				InputSource src = new InputSource(getClass().getResourceAsStream("/resources/initial.xml"));
+				InputSource src = new InputSource(getClass().getResourceAsStream("/initial.xml"));
 				Document initial = docBuilder.parse(src);
 
 				result += "<tr><td>&nbsp;</td><td></td></tr>";

@@ -42,7 +42,7 @@ public class RESTFunction {
 	
 	public RESTFunction()
 	{
-		this.con = new Connector(getClass().getClassLoader().getResource("/resources").getPath() + "kereta.xml");
+		this.con = new Connector(getClass().getClassLoader().getResource("/").getPath() + "kereta.xml");
 		
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

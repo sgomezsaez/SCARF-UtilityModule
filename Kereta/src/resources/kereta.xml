@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kereta>
+<url>jdbc:mysql://scarf-kereta-database:3306/Kereta</url>
+<user>user</user>
+<password>password</password>
+<KeretaRoot>http://localhost:8080/Kereta</KeretaRoot>
+<NefologRoot>http://scarf-nefolog:8080/nefolog</NefologRoot>
+</kereta>
