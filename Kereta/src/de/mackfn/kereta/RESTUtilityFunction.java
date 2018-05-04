@@ -568,10 +568,22 @@ public class RESTUtilityFunction {
 				StringTokenizer toks = new StringTokenizer(sFct.getFunctionId(), "$");
 				if (toks.countTokens() == 2) {
 					toks.nextToken();
-					configID = toks.nextToken();	
-					fctStr = "configuration: " + configID;
+					configID = toks.nextToken();
+
+					//checking if more than one configuration
+					if (configID.contains(";")) {
+						result = 0;
+						String[] configIDs = configID.split(";");
+						for (int i=0; i<configIDs.length; i++) {
+							String config = configIDs[i];
+							result += NefologWrapper.getLowestCost(config, vSet, con.getNefologRoot());
+						}
+					}
+					else {
+						result = NefologWrapper.getLowestCost(configID, vSet, con.getNefologRoot());
+					}
 				}
-				result = NefologWrapper.getLowestCost(configID, vSet, con.getNefologRoot());
+				fctStr = "configuration: " + configID;
 				type = "cost";
 			}
 			else
@@ -695,6 +707,8 @@ public class RESTUtilityFunction {
 		Element root = doc.createElement("parameters");
 		Document nefDoc = null;
 		doc.appendChild(root);
+
+		int status = 404;
 		
 		if (sFct.getFunctionId().contains("$"))
 		{
@@ -704,21 +718,53 @@ public class RESTUtilityFunction {
 				toks.nextToken();
 				configID = toks.nextToken();	
 			}
-			nefDoc = NefologWrapper.getParametersDoc(configID, con.getNefologRoot());
-		}
-		int status = 404;
-		if (nefDoc != null) 
-		{
-			status = 200;
-			NodeList vars = nefDoc.getElementsByTagName("variable");
-			for (int i = 0; i < vars.getLength(); i++)
-			{
-				Element el = doc.createElement("parameter");
-				el.setTextContent(vars.item(i).getTextContent());
-				root.appendChild(el);
+
+			if (configID.contains(";")) {
+				String[] configIDs = configID.split(";");
+				String config = "";
+				for (int j=0; j<configIDs.length;j++) {
+					config = configIDs[j];
+					nefDoc = NefologWrapper.getParametersDoc(config, con.getNefologRoot());
+					if (nefDoc != null) 
+					{
+						status = 200;
+						NodeList vars = nefDoc.getElementsByTagName("variable");
+						for (int i = 0; i < vars.getLength(); i++)
+						{
+							Element el = doc.createElement("parameter");
+							
+							NodeList existingParameters = root.getElementsByTagName("parameter");
+							boolean parameterExists = false;
+							for (int node=0; node < existingParameters.getLength(); node++) {
+								if (vars.item(i).getTextContent().equals(existingParameters.item(node).getTextContent())) {
+									parameterExists = true; 
+									break;
+								}
+							}
+							if (! parameterExists) {
+								el.setTextContent(vars.item(i).getTextContent());
+								root.appendChild(el);
+							}
+						}
+					}
+				}
+			}
+			else {
+				nefDoc = NefologWrapper.getParametersDoc(configID, con.getNefologRoot());
+
+				if (nefDoc != null) 
+				{
+					status = 200;
+					NodeList vars = nefDoc.getElementsByTagName("variable");
+					for (int i = 0; i < vars.getLength(); i++)
+					{
+						Element el = doc.createElement("parameter");
+						el.setTextContent(vars.item(i).getTextContent());
+						root.appendChild(el);
+					}
+				}
 			}
 		}
-		
 		return StaticTools.getResponse(status, doc, true, "*");
 	}
 	
