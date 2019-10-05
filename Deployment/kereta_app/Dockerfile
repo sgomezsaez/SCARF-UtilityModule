@@ -15,7 +15,7 @@ COPY /bin/Kereta.war ${CATALINA_HOME}/webapps/Kereta.war
 WORKDIR $CATALINA_HOME
 
 RUN apt-get -y update
-RUN apt-get -y install mysql-client
+#RUN apt-get -y install mysql-client
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
