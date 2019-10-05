@@ -1,0 +1,4155 @@
+{
+	"info": {
+		"name": "SCARF Kereta Testcase",
+		"_postman_id": "26bc2ce7-2437-ea46-d381-d675ba5657be",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Preparation 1  - Application & Distribution",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Application Type - Wiki_App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Type/ApplicationType/Wiki_App",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Type",
+								"ApplicationType",
+								"Wiki_App"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application - MediaWiki",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>MediaWiki</name>\n    <alias>mw</alias>\n    <description>this the mediawiki application</description>\n    <applicationType>Wiki_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/c8f9242b-dbdb-449d-859d-f540e6290c6b",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"c8f9242b-dbdb-449d-859d-f540e6290c6b"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Associate App Data - MediaWiki",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>MediaWiki</name>\n    <alias>mw</alias>\n    <description>this the mediawiki application</description>\n    <applicationType>Wiki_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application Type - B2C_App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Type/ApplicationType/B2C_App",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Type",
+								"ApplicationType",
+								"B2C_App"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application - MyWebShop",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>MyWebShop</name>\n    <alias>mws</alias>\n    <description>this the mediawiki application</description>\n    <applicationType>B2C_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Associate App Data - MyWebShop",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>MyWebShop</name>\n    <alias>mws</alias>\n    <description>this the mediawiki application</description>\n    <applicationType>B2C_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/48c5e723-57f2-4208-82bf-b88ed752179b",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"48c5e723-57f2-4208-82bf-b88ed752179b"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application Type - Simulation_App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Type/ApplicationType/Simulation_App",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Type",
+								"ApplicationType",
+								"Simulation_App"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application - OPAL_Simulation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>OPAL_Simulation</name>\n    <alias>mws</alias>\n    <description>this the opal simulation application</description>\n    <applicationType>Simulation_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Associate App Data - OPAL_Simulation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>OPAL_Simulation</name>\n    <alias>os</alias>\n    <description>this the opal simulation application</description>\n    <applicationType>Simulation_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/c6d9011e-cbe1-4fd6-805d-85145c3332e3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"c6d9011e-cbe1-4fd6-805d-85145c3332e3"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application Type - Smart_City_App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Type/ApplicationType/Smart_City_App",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Type",
+								"ApplicationType",
+								"Smart_City_App"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application - Trip_Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>Trip_Booking</name>\n    <alias>tb</alias>\n    <description>this the trip booking application</description>\n    <applicationType>Smart_City_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Associate App Data - Trip_Booking",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>Trip_Booking</name>\n    <alias>tb</alias>\n    <description>this the trip booking application</description>\n    <applicationType>Smart_City_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/5a40f6d3-965c-4530-a62e-ddc621b68e5f",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"5a40f6d3-965c-4530-a62e-ddc621b68e5f"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application Type - elearning_App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Type/ApplicationType/elearning_App",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Type",
+								"ApplicationType",
+								"elearning_App"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Application - Moodle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>Moodle</name>\n    <alias>m</alias>\n    <description>this the moodle application</description>\n    <applicationType>elearning_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Associate App Data - Moodle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>Moodle</name>\n    <alias>m</alias>\n    <description>this the moodle application</description>\n    <applicationType>elearning_App</applicationType>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/b32006fa-7f97-4479-8dc0-e22dc7d78822",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"b32006fa-7f97-4479-8dc0-e22dc7d78822"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deprecated - localhost:8080/Kereta/Application/app1/Distribution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host_kereta}}:{{port_kereta}}/Kereta/Application/{{application_alias}}/Distribution",
+							"host": [
+								"{{host_kereta}}"
+							],
+							"port": "{{port_kereta}}",
+							"path": [
+								"Kereta",
+								"Application",
+								"{{application_alias}}",
+								"Distribution"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deprecated - localhost:8080/Kereta/Distribution/6a88c53b-cdc8-4ee9-a669-aad4c9fd93f7/",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <alias>{{distribution_1_alias}}</alias>\n</distribution>"
+						},
+						"url": {
+							"raw": "{{host_kereta}}:{{port_kereta}}/Kereta/Distribution/{{distribution_1_id}}/",
+							"host": [
+								"{{host_kereta}}"
+							],
+							"port": "{{port_kereta}}",
+							"path": [
+								"Kereta",
+								"Distribution",
+								"{{distribution_1_id}}",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deprecated - localhost:8080/Kereta/Application/app1/Distribution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host_kereta}}:{{port_kereta}}/Kereta/Application/{{application_alias}}/Distribution",
+							"host": [
+								"{{host_kereta}}"
+							],
+							"port": "{{port_kereta}}",
+							"path": [
+								"Kereta",
+								"Application",
+								"{{application_alias}}",
+								"Distribution"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deprecated - {{host_kereta}}:{{port_kereta}}/Kereta/Distribution/9b609893-fce6-49cd-8c3a-3f39bcc7c798",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <alias>{{distribution_2_alias}}</alias>\n</distribution>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/{{distribution_2_id}}/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"{{distribution_2_id}}",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - App Distribution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/mw/Distribution",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"mw",
+								"Distribution"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - App Distribution Alias",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <alias>mw_dist1</alias>\n</distribution>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/8bb9b71c-6cd4-41e9-afed-4e3eb155f601/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"8bb9b71c-6cd4-41e9-afed-4e3eb155f601",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - App Distribution 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/mw/Distribution",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"mw",
+								"Distribution"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - App Distribution Alias 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <alias>mw_dist2</alias>\n</distribution>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/81f65e11-243e-4f56-9bf9-ab39de9b5b40/",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"81f65e11-243e-4f56-9bf9-ab39de9b5b40",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/c590816c-f4f7-4b65-966a-f361bd05d921",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"c590816c-f4f7-4b65-966a-f361bd05d921"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Preparation 2 - Utility Function",
+			"description": "",
+			"item": [
+				{
+					"name": "MediaWiki - Utility Function",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist1/UtilityFunction",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist1",
+								"UtilityFunction"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Utility Function",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<utilityFunction>\n    <alias>profitability</alias>\n    <description>default utility function for analyzing profitability</description>\n</utilityFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/4f29e4f9-e59b-4c8a-94e9-fbb09211cb53",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"4f29e4f9-e59b-4c8a-94e9-fbb09211cb53"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Utility Function 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2/UtilityFunction",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2",
+								"UtilityFunction"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Utility Function 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<utilityFunction>\n    <alias>uf2</alias>\n</utilityFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/28ab5341-28d1-48a1-85bb-812045f84a53",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"28ab5341-28d1-48a1-85bb-812045f84a53"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/28ab5341-28d1-48a1-85bb-812045f84a53",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"28ab5341-28d1-48a1-85bb-812045f84a53"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Preparation 3 - Function",
+			"description": "",
+			"item": [
+				{
+					"name": "Function revenue_default",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function revenue_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>revenue_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/8ebd8af5-a5db-4267-949b-f29c8eb70625",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"8ebd8af5-a5db-4267-949b-f29c8eb70625"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>satisfaction</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/6a4a74dd-be7d-48d6-be22-a93a131f356a",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"6a4a74dd-be7d-48d6-be22-a93a131f356a"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function wl_probability_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function wl_probability_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>wl_probability_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/fed53175-427a-4499-9fc7-a77badf0105e",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"fed53175-427a-4499-9fc7-a77badf0105e"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function tpu_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function tpu_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>tpu_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/c62f3ee0-6a16-48c2-ae65-1ebe2cb17bd5",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"c62f3ee0-6a16-48c2-ae65-1ebe2cb17bd5"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function rpu_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function rpu_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>rpu_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/8a47c0ee-a43e-47f0-bd5b-33d167465836",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"8a47c0ee-a43e-47f0-bd5b-33d167465836"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function pt_users_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function pt_users_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>pt_users_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/1b65071c-1074-4bf8-8716-202f06db810b",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"1b65071c-1074-4bf8-8716-202f06db810b"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function availability_default",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function availability_default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <alias>availability_default</alias>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/dfe8862f-204b-4c2f-aa2b-b61811ccf010",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"dfe8862f-204b-4c2f-aa2b-b61811ccf010"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Resources 1",
+			"description": "",
+			"item": [
+				{
+					"name": "MediaWiki - Tier 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Tier/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Tier",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Tier 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>Frontend</name>\n    <description>PHP Frontend</description>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Tier/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Tier",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Tier 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Tier/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Tier",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Tier 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<application>\n    <name>BackendDB</name>\n    <description>persistency layer, using a mySQL DB</description>\n    <author>sgs</author>\n</application>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Tier/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Tier",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Requirement Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Requirement/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Requirement",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Requirement Location",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<requirement>\n    <requirementType>nonFunctional</requirementType>\n    <demand>=</demand>\n    <value>eu</value>\n    <author>sgs</author>\n</requirement>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/8065bcae-3aa5-4d2f-af46-bf01beda6eb6/Requirement/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"8065bcae-3aa5-4d2f-af46-bf01beda6eb6",
+								"Requirement",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Create Distribution 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <description>a viable topology that uses a IaaS service</description>\n    <language>TOSCA</language>\n    <langVersion>1.0</langVersion>\n    <representation>\n      <tosca:Definitions id=\"winery-defs-for_ns0-MediaWiki\" targetNamespace=\"http://www.eclipse.org/winery/model/selfservice\" xmlns:tosca=\"http://docs.oasis-open.org/tosca/ns/2011/12\" xmlns:ns0=\"http://www.eclipse.org/winery/model/selfservice\" xmlns:winery=\"http://www.opentosca.org/winery/extensions/tosca/2013/02/12\">\n    <tosca:ServiceTemplate id=\"MediaWiki\" name=\"MediaWiki\" targetNamespace=\"http://www.eclipse.org/winery/model/selfservice\">\n        <tosca:TopologyTemplate>\n            <tosca:NodeTemplate name=\"MediaWiki\" id=\"Wiki_App\" type=\"ns0:Wiki_App\" winery:x=\"573.993\" winery:y=\"10.9896\"/>\n            <tosca:NodeTemplate name=\"Frontend\" id=\"PHP_App\" type=\"ns0:PHP_App\" winery:x=\"385.986\" winery:y=\"130.986\"/>\n            <tosca:NodeTemplate name=\"BackendDB\" id=\"SQL_DB\" type=\"ns0:SQL_DB\" winery:x=\"738\" winery:y=\"133\"/>\n            <tosca:NodeTemplate name=\"Apache_PHP_Module\" id=\"PHP_Container\" type=\"ns0:PHP_Container\" winery:x=\"385.986\" winery:y=\"260.99\"/>\n            <tosca:NodeTemplate name=\"Apache_HTTP_Server\" id=\"Web_Server\" type=\"ns0:Web_Server\" winery:x=\"385.986\" winery:y=\"397.986\"/>\n            <tosca:NodeTemplate name=\"Ubuntu_16_04_LTS\" id=\"Ubuntu_Server\" type=\"ns0:Ubuntu_Server\" winery:x=\"385.993\" winery:y=\"545\"/>\n            <tosca:NodeTemplate name=\"m1_medium\" id=\"elasticComputeCloud\" type=\"ns0:elasticComputeCloud\" winery:x=\"386.983\" winery:y=\"680.972\"/>\n            <tosca:NodeTemplate name=\"MySQL\" id=\"SQL_Server\" type=\"ns0:SQL_Server\" winery:x=\"740\" winery:y=\"261\"/>\n            <tosca:NodeTemplate name=\"db_m4_large\" id=\"relationalDatabaseService\" type=\"ns0:relationalDatabaseService\" winery:x=\"738\" winery:y=\"393\"/>\n            <tosca:RelationshipTemplate name=\"con_28\" id=\"con_28\" type=\"winery:ConsistsOf\">\n                <tosca:SourceElement ref=\"Wiki_App\"/>\n                <tosca:TargetElement ref=\"PHP_App\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_40\" id=\"con_40\" type=\"winery:ConsistsOf\">\n                <tosca:SourceElement ref=\"Wiki_App\"/>\n                <tosca:TargetElement ref=\"SQL_DB\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_52\" id=\"con_52\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"PHP_App\"/>\n                <tosca:TargetElement ref=\"PHP_Container\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_64\" id=\"con_64\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"PHP_Container\"/>\n                <tosca:TargetElement ref=\"Web_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_76\" id=\"con_76\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"Web_Server\"/>\n                <tosca:TargetElement ref=\"Ubuntu_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_88\" id=\"con_88\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"Ubuntu_Server\"/>\n                <tosca:TargetElement ref=\"elasticComputeCloud\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_100\" id=\"con_100\" type=\"winery:InteractsWith\">\n                <tosca:SourceElement ref=\"PHP_App\"/>\n                <tosca:TargetElement ref=\"SQL_DB\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_118\" id=\"con_118\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"SQL_DB\"/>\n                <tosca:TargetElement ref=\"SQL_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_130\" id=\"con_130\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"SQL_Server\"/>\n                <tosca:TargetElement ref=\"relationalDatabaseService\"/>\n            </tosca:RelationshipTemplate>\n        </tosca:TopologyTemplate>\n    </tosca:ServiceTemplate>\n</tosca:Definitions>\n</representation>\n    <author>author1</author>\n</distribution>\n"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/8bb9b71c-6cd4-41e9-afed-4e3eb155f601",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"8bb9b71c-6cd4-41e9-afed-4e3eb155f601"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Create Distribution 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<distribution>\n    <description>a viable topology that uses a DBaaS service</description>\n    <language>TOSCA</language>\n    <langVersion>1.0</langVersion>\n    <representation>\n      <tosca:Definitions id=\"winery-defs-for_ns0-MediaWiki\" targetNamespace=\"http://www.eclipse.org/winery/model/selfservice\" xmlns:tosca=\"http://docs.oasis-open.org/tosca/ns/2011/12\" xmlns:ns0=\"http://www.eclipse.org/winery/model/selfservice\" xmlns:winery=\"http://www.opentosca.org/winery/extensions/tosca/2013/02/12\">\n    <tosca:ServiceTemplate id=\"MediaWiki\" name=\"MediaWiki\" targetNamespace=\"http://www.eclipse.org/winery/model/selfservice\">\n        <tosca:TopologyTemplate>\n            <tosca:NodeTemplate name=\"MediaWiki\" id=\"Wiki_App\" type=\"ns0:Wiki_App\" winery:x=\"573.993\" winery:y=\"10.9896\"/>\n            <tosca:NodeTemplate name=\"Frontend\" id=\"PHP_App\" type=\"ns0:PHP_App\" winery:x=\"385.986\" winery:y=\"130.986\"/>\n            <tosca:NodeTemplate name=\"BackendDB\" id=\"SQL_DB\" type=\"ns0:SQL_DB\" winery:x=\"738\" winery:y=\"133\"/>\n            <tosca:NodeTemplate name=\"Apache_PHP_Module\" id=\"PHP_Container\" type=\"ns0:PHP_Container\" winery:x=\"385.986\" winery:y=\"260.99\"/>\n            <tosca:NodeTemplate name=\"Apache_HTTP_Server\" id=\"Web_Server\" type=\"ns0:Web_Server\" winery:x=\"385.986\" winery:y=\"397.986\"/>\n            <tosca:NodeTemplate name=\"Ubuntu_16_04_LTS\" id=\"Ubuntu_Server\" type=\"ns0:Ubuntu_Server\" winery:x=\"385.993\" winery:y=\"545\"/>\n            <tosca:NodeTemplate name=\"m1_medium\" id=\"elasticComputeCloud\" type=\"ns0:elasticComputeCloud\" winery:x=\"386.983\" winery:y=\"680.972\"/>\n            <tosca:NodeTemplate name=\"MySQL\" id=\"SQL_Server\" type=\"ns0:SQL_Server\" winery:x=\"740\" winery:y=\"261\"/>\n            <tosca:NodeTemplate name=\"db_m4_large\" id=\"relationalDatabaseService\" type=\"ns0:relationalDatabaseService\" winery:x=\"738\" winery:y=\"393\"/>\n            <tosca:RelationshipTemplate name=\"con_28\" id=\"con_28\" type=\"winery:ConsistsOf\">\n                <tosca:SourceElement ref=\"Wiki_App\"/>\n                <tosca:TargetElement ref=\"PHP_App\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_40\" id=\"con_40\" type=\"winery:ConsistsOf\">\n                <tosca:SourceElement ref=\"Wiki_App\"/>\n                <tosca:TargetElement ref=\"SQL_DB\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_52\" id=\"con_52\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"PHP_App\"/>\n                <tosca:TargetElement ref=\"PHP_Container\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_64\" id=\"con_64\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"PHP_Container\"/>\n                <tosca:TargetElement ref=\"Web_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_76\" id=\"con_76\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"Web_Server\"/>\n                <tosca:TargetElement ref=\"Ubuntu_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_88\" id=\"con_88\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"Ubuntu_Server\"/>\n                <tosca:TargetElement ref=\"elasticComputeCloud\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_100\" id=\"con_100\" type=\"winery:InteractsWith\">\n                <tosca:SourceElement ref=\"PHP_App\"/>\n                <tosca:TargetElement ref=\"SQL_DB\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_118\" id=\"con_118\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"SQL_DB\"/>\n                <tosca:TargetElement ref=\"SQL_Server\"/>\n            </tosca:RelationshipTemplate>\n            <tosca:RelationshipTemplate name=\"con_130\" id=\"con_130\" type=\"winery:HostedOn\">\n                <tosca:SourceElement ref=\"SQL_Server\"/>\n                <tosca:TargetElement ref=\"relationalDatabaseService\"/>\n            </tosca:RelationshipTemplate>\n        </tosca:TopologyTemplate>\n    </tosca:ServiceTemplate>\n</tosca:Definitions>\n    </representation>\n    <author>author1</author>\n</distribution>\n"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for distribution 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/8bb9b71c-6cd4-41e9-afed-4e3eb155f601/Offering/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"8bb9b71c-6cd4-41e9-afed-4e3eb155f601",
+								"Offering",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for distribution 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<offering>\n<nefologConfiguration>/offerings/elasticComputeCloud/configuration_289</nefologConfiguration>\n<nefologConfigurationId>289</nefologConfigurationId>\n<nefologOfferingName>offerings/elasticComputeCloud</nefologOfferingName>\n<nefologServiceType>/serviceTypes/infrastructures</nefologServiceType>\n<nefologProvider>/providers/AmazonWebServices</nefologProvider>\n<author>author1</author>\n</offering>\n"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/8bb9b71c-6cd4-41e9-afed-4e3eb155f601/Offering/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"8bb9b71c-6cd4-41e9-afed-4e3eb155f601",
+								"Offering",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for distribution 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/81f65e11-243e-4f56-9bf9-ab39de9b5b40/Offering/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"81f65e11-243e-4f56-9bf9-ab39de9b5b40",
+								"Offering",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for distribution 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<offering>\n<nefologConfiguration>/offerings/relationalDatabaseService/configuration_187</nefologConfiguration>\n<nefologConfigurationId>187</nefologConfigurationId>\n<nefologOfferingName>/offerings/relationalDatabaseService</nefologOfferingName>\n<nefologServiceType>/serviceTypes/sqlDatabases</nefologServiceType>\n<nefologProvider>/providers/AmazonWebServices</nefologProvider>\n<author>author1</author>\n</offering>\n"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/81f65e11-243e-4f56-9bf9-ab39de9b5b40/Offering/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"81f65e11-243e-4f56-9bf9-ab39de9b5b40",
+								"Offering",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for Tier 2 Distribution 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist1/Offering/1/Tier/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist1",
+								"Offering",
+								"1",
+								"Tier",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Offering 1 for Tier 2 Distribution 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2/Offering/1/Tier/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2",
+								"Offering",
+								"1",
+								"Tier",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Distribution 1 Offering 1 Performance location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/8bb9b71c-6cd4-41e9-afed-4e3eb155f601/Offering/1/Performance/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"8bb9b71c-6cd4-41e9-afed-4e3eb155f601",
+								"Offering",
+								"1",
+								"Performance",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Distribution 1 Offering 1 Performance location",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<performance>\n    <demand>=</demand>\n    <value>Frankfurt</value>\n    <requirementType>nonFunctional</requirementType>\n    <author>author1</author>\n</performance>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/dstr1/Offering/1/Performance/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"dstr1",
+								"Offering",
+								"1",
+								"Performance",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Distribution 2 Offering 1 Performance location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2/Offering/1/Performance/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2",
+								"Offering",
+								"1",
+								"Performance",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Distribution 2 Offering 1 Performance location",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<performance>\n    <demand>=</demand>\n    <value>Frankfurt</value>\n    <requirementType>nonFunctional</requirementType>\n    <author>author1</author>\n</performance>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2/Offering/1/Performance/location",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2",
+								"Offering",
+								"1",
+								"Performance",
+								"location"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Resources 2",
+			"description": "",
+			"item": [
+				{
+					"name": "Funtion 1 - Customer Satisfaction",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>user_gained / user_loss</formula>\n    <functionType>customer_satisfaction</functionType>\n    <description>customer_satisfaction = user_gained / user_loss</description>\n    <author>author1</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction - Parameter users gained",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>user_gained / user_loss</formula>\n    <functionType>customer_satisfaction</functionType>\n    <description>customer_satisfaction = user_gained / user_loss</description>\n    <author>author1</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction/Parameter/user_gained",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction",
+								"Parameter",
+								"user_gained"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction - Parameter users gained",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>users gained</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction/Parameter/user_gained",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction",
+								"Parameter",
+								"user_gained"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction - Parameter users loss",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>user_gained / user_loss</formula>\n    <functionType>customer_satisfaction</functionType>\n    <description>customer_satisfaction = user_gained / user_loss</description>\n    <author>author1</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction/Parameter/user_loss",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction",
+								"Parameter",
+								"user_loss"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function satisfaction - Parameter users loss",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>users loss</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction/Parameter/user_loss",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction",
+								"Parameter",
+								"user_loss"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion 1 - Revenue Default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w ( FCT(wl_probability_default, w:w) * (1 - error) * FCT(tpu_default, w:w) * time * FCT(rpu_default, time:time) * FCT(pt_users_default, time:time) * FCT(availability_default, To:To))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter To",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/To",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"To"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter To",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>topology number</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/To",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"To"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter error",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/error",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"error"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter error",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>error rate</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/error",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"error"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter time",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter time",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>time in days</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter w",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Function Revenue Default - Parameter w",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>array of numbers</dataType>\n    <description>workload w: [w_0, w_n]</description>\n    <defaultValue>[0,0]</defaultValue>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion Workload Probability Default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>IFF(EQU(w,0), 0.2)+ IFF(EQU(w,1), 0.1)+ IFF(EQU(w,2), 0.4)+ IFF(EQU(w,3), 0.3)</formula>\n    <functionType>probability_default</functionType>\n    <description>probability of workload</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/wl_probability_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"wl_probability_default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion Workload Probability Default - Parameter workload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/wl_probability_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"wl_probability_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion Workload Probability Default - Parameter workload",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>workload</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/wl_probability_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"wl_probability_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion transactions per user default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>IFF(EQU(w,0), 10)+ IFF(EQU(w,1), 20)+ IFF(EQU(w,2), 30)+ IFF(EQU(w,3), 40)</formula>\n    <functionType>tpu_default</functionType>\n    <description>transactions per user</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/tpu_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"tpu_default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion transactions per user default - Parameter workload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/tpu_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"tpu_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion transactions per user default - Parameter workload",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>workload</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/tpu_default/Parameter/w",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"tpu_default",
+								"Parameter",
+								"w"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion revenues per user default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>IFE(&lt;(MOD(time,365), 250),5.18, 10.35)</formula>\n    <functionType>rpu_default</functionType>\n    <description>revenue per user in days</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/rpu_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"rpu_default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion revenues per user default - Parameter time",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/rpu_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"rpu_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion revenues per user default - Parameter time",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>time in days of year</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/rpu_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"rpu_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion number of users default",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>IFE( &lt;(MOD(time,265), 1), 5000, IFE(&lt;(MOD(time,300),3), 3200,2000) )</formula>\n    <functionType>pt_users_default</functionType>\n    <description>number of users in time (days per year) interval</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/pt_users_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"pt_users_default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion number of users default - Parameter time",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/pt_users_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"pt_users_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion number of users default - Parameter time",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>time in days of year</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/pt_users_default/Parameter/time",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"pt_users_default",
+								"Parameter",
+								"time"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion availability",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>IFF(EQU(To,0), 0.998)+ IFF(EQU(To,1), 0.9975)+ IFF(EQU(To,2), 0.9975)</formula>\n    <functionType>availability_default</functionType>\n    <description>availability for topologies</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/availability_default",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"availability_default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion availability - Parameter To",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<function>\n    <formula>SUM_w (FCT(probability, w:w) * (((1 - error) * FCT(tpu, w:w)) * time * FCT(rpu, time) * FCT(pt_users, time) * FCT(availability, To, time)))</formula>\n    <functionType>revenue_default</functionType>\n    <description>revenue = sum(P(w) * (((1 - error) * tpu(w) * time * rpu(time)) * users(w) * availability(To, time)))</description>\n    <author>sgs</author>\n</function>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/availability_default/Parameter/To",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"availability_default",
+								"Parameter",
+								"To"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Funtion availability - Parameter To",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<parameter>\n    <dataType>number</dataType>\n    <description>topology</description>\n</parameter>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/availability_default/Parameter/To",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"availability_default",
+								"Parameter",
+								"To"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility function uf1 - mw_dist1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<utilityFunction>\n    <description>utility function for distribution mw_dist1</description>\n</utilityFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function uf1 - Subfunction 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1/SubFunction/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1",
+								"SubFunction",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function uf1 - Subfunction 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>satisfaction</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1/SubFunction/1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1",
+								"SubFunction",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility function uf1 - Subfunction 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1/SubFunction/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1",
+								"SubFunction",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function uf1 - Subfunction 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>revenue_default</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1/SubFunction/2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1",
+								"SubFunction",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility function uf1 - Subfunction 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function uf1 - Subfunction 3",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>nefolog$289</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility function uf1 - Subfunction 4 (aggregated cost)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/4",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"4"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility function uf1 - Subfunction 4 (aggregated cost)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>nefolog$289;125</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/4",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"4"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function uf1 - Subfunction 3 copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>nefolog$289</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function profitability - Subfunction 3 delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<subFunction>\n    <functionId>nefolog$289</functionId>\n</subFunction>"
+						},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Try functionality",
+			"description": "",
+			"item": [
+				{
+					"name": "Test - Function satisfaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/satisfaction/calc?user_gained=10&user_loss=2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"satisfaction",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "user_gained",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "user_loss",
+									"value": "2",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function rpu_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/rpu_default/calc?time=3000",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"rpu_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "time",
+									"value": "3000",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function tpu_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/tpu_default/calc?w=3",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"tpu_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "w",
+									"value": "3",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function availability_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/availability_default/calc?To=2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"availability_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "To",
+									"value": "2",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function wl_probability_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/wl_probability_default/calc?w=2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"wl_probability_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "w",
+									"value": "2",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function pt_users_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/pt_users_default/calc?time=650",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"pt_users_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "time",
+									"value": "650",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Test - Function revenue_default",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Function/revenue_default/calc?user_gained=10&user_loss=2&To=1&error=0.5&time=10&w=[0,0]",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Function",
+								"revenue_default",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "user_gained",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "user_loss",
+									"value": "2",
+									"equals": true
+								},
+								{
+									"key": "To",
+									"value": "1",
+									"equals": true
+								},
+								{
+									"key": "error",
+									"value": "0.5",
+									"equals": true
+								},
+								{
+									"key": "time",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "w",
+									"value": "[0,0]",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 1 satisfaction assign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/1/assign?key=myKey1&user_gained=10&user_loss=2",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"1",
+								"assign"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								},
+								{
+									"key": "user_gained",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "user_loss",
+									"value": "2",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 1 satisfaction calculate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/1/calc?key=myKey1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"1",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 2 revenue assign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/2/assign?key=myKey1&user_gained=10&user_loss=2&To=1&error=0.5&time=10&w=[0,0]",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"2",
+								"assign"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								},
+								{
+									"key": "user_gained",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "user_loss",
+									"value": "2",
+									"equals": true
+								},
+								{
+									"key": "To",
+									"value": "1",
+									"equals": true
+								},
+								{
+									"key": "error",
+									"value": "0.5",
+									"equals": true
+								},
+								{
+									"key": "time",
+									"value": "10",
+									"equals": true
+								},
+								{
+									"key": "w",
+									"value": "[0,0]",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 2 revenue calculate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/2/calc?key=myKey1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"2",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 3 cost Nefolog Parameter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3/NefologParameter",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3",
+								"NefologParameter"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 3 cost assign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3/assign?key=myKey1&Hour=100&Month=3&location_zone=EU",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3",
+								"assign"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								},
+								{
+									"key": "Hour",
+									"value": "100",
+									"equals": true
+								},
+								{
+									"key": "Month",
+									"value": "3",
+									"equals": true
+								},
+								{
+									"key": "location_zone",
+									"value": "EU",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 3 cost calculate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/3/calc?key=myKey1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"3",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 4 aggregated cost Nefolog Parameter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/4/NefologParameter",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"4",
+								"NefologParameter"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 4 aggregated cost Nefolog assign",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/4/assign?key=myKey1&Hour=100&Month=3&location_zone=EU",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"4",
+								"assign"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								},
+								{
+									"key": "Hour",
+									"value": "100",
+									"equals": true
+								},
+								{
+									"key": "Month",
+									"value": "3",
+									"equals": true
+								},
+								{
+									"key": "location_zone",
+									"value": "EU",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Subfunction 4 aggregated cost calculate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/profitability/SubFunction/4/calc?key=myKey1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"profitability",
+								"SubFunction",
+								"4",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function 1 - Calculate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/uf1/calc?key=myKey1",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"uf1",
+								"calc"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "myKey1",
+									"equals": true
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Utility Function - Clone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/179cd50b-5ec4-412c-b9f6-cbab91101705/clone?distribution=fbe2120d-cc0a-40b0-96c3-6b8cadfcf380",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"179cd50b-5ec4-412c-b9f6-cbab91101705",
+								"clone"
+							],
+							"query": [
+								{
+									"key": "distribution",
+									"value": "fbe2120d-cc0a-40b0-96c3-6b8cadfcf380",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Get Application",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/mw",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"mw"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Select distribution",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/mw/select?dstr1=uf1:myKey&dstr2=uf2:myKey",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"mw",
+								"select"
+							],
+							"query": [
+								{
+									"key": "dstr1",
+									"value": "uf1:myKey",
+									"equals": true
+								},
+								{
+									"key": "dstr2",
+									"value": "uf2:myKey",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MediaWiki - Compare Distribution",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Application/mw/compare?dstr1=uf1:myKey&dstr2=uf2:myKey",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Application",
+								"mw",
+								"compare"
+							],
+							"query": [
+								{
+									"key": "dstr1",
+									"value": "uf1:myKey",
+									"equals": true
+								},
+								{
+									"key": "dstr2",
+									"value": "uf2:myKey",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Distribution 1 - Check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist1/check",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist1",
+								"check"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Distribution 2 - Check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/mw_dist2/check",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"mw_dist2",
+								"check"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search - resource Function",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Search?resource=Function",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "Function",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search - resource function revenue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Search?resource=Function&functionType=revenue",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "Function",
+									"equals": true
+								},
+								{
+									"key": "functionType",
+									"value": "revenue",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search - resource Application type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Search?resource=Application&applicationType=testApplicationType",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "Application",
+									"equals": true
+								},
+								{
+									"key": "applicationType",
+									"value": "testApplicationType",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search - Resource Function",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Search?resource=Function&applicationType=testApplicationType",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "Function",
+									"equals": true
+								},
+								{
+									"key": "applicationType",
+									"value": "testApplicationType",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search - Resource utility function",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Search?resource=UtilityFunction&applicationType=testApplicationType",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "resource",
+									"value": "UtilityFunction",
+									"equals": true
+								},
+								{
+									"key": "applicationType",
+									"value": "testApplicationType",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deprecated - Utility Function 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/UtilityFunction/{{utilityFunction1_alias}}",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"UtilityFunction",
+								"{{utilityFunction1_alias}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Distribution 2 - Utility Function",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url_utility}}/Kereta/Distribution/{{distribution_2_alias}}/UtilityFunction",
+							"host": [
+								"{{url_utility}}"
+							],
+							"path": [
+								"Kereta",
+								"Distribution",
+								"{{distribution_2_alias}}",
+								"UtilityFunction"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "de3ebd50-dfd4-4aae-a2c2-cba0b2e5e3cb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8a63c358-c9ac-4b99-81a8-72f51079fa53",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
